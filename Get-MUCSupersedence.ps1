@@ -4,22 +4,9 @@ Import functions by calling . .\get-MUCSupersedence.ps1
 #>
 
 
-
-
-
-
-
 function Get-MUCSepersedence 
 {
 [CmdletBinding()]
-
-
-
-
-
-
-
-
 
     param (
             [parameter(mandatory=$true)]
@@ -30,26 +17,21 @@ function Get-MUCSepersedence
             
             )
 
-
-
-
-
-
 function CreateKBEntry ($Message, $KB, $name, $LastSupersedingKB, $FullSupersedingList, $url, $version, $FullKBList) {
 
-$properties = @{
-Message = $message
-SupersededKB = $KB
-Name = $name
-LastSupersedingKB = $LastSupersedingKB
-FullSupersedingList = $FullSupersedingList
-URL = if ($url -eq $null) {"N/A"} else {$url}
-Version = if ($version -eq $null) {"N/A"} else {$version}
-FullSupersedance = $FullKBList
-}
-$KBEntry = New-Object psobject -Property $properties;
-return $KBEntry
-}
+        $properties = @{
+        Message = $message
+        SupersededKB = $KB
+        Name = $name
+        LastSupersedingKB = $LastSupersedingKB
+        FullSupersedingList = $FullSupersedingList
+        URL = if ($url -eq $null) {"N/A"} else {$url}
+        Version = if ($version -eq $null) {"N/A"} else {$version}
+        FullSupersedance = $FullKBList
+        }
+        $KBEntry = New-Object psobject -Property $properties;
+        return $KBEntry
+        }
 
 
 Write-Verbose "Searching Microsoft Update Catalog for links related to $kb"
@@ -229,7 +211,3 @@ https://github.com/BlackwolfComputing/Get-MUC-Supersedence
 
 #>
 }
-
-
-
-
